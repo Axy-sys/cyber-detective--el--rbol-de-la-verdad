@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://cbncuqqjhl3it"]
+
+[ext_resource type="Script" path="res://views/DashboardView.gd" id="1_dboard"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.015, 0.025, 0.04, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.04, 0.06, 0.1, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.6, 0.8, 0.6)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0.8, 1, 0.15)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.05, 0.4, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.9, 1, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0.6, 1, 0.3)
+shadow_size = 8
+
+[node name="DashboardScene" type="Control" unique_id=1993372492]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dboard")
+
+[node name="Background" type="Panel" parent="." unique_id=2084370904]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="TreeScroll" type="ScrollContainer" parent="Background" unique_id=978675214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TreeCanvas" type="Control" parent="Background/TreeScroll" unique_id=1613145924]
+custom_minimum_size = Vector2(2500, 1500)
+layout_mode = 2
+
+[node name="HUD" type="Control" parent="." unique_id=104719764]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="HUD" unique_id=93721761]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="LblTitle" type="Label" parent="HUD/TopBar" unique_id=962358317]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "  CYBER-TREE: ESTRUCTURA PRINCIPAL"
+
+[node name="LblFeedback" type="Label" parent="HUD/TopBar" unique_id=1712664736]
+layout_mode = 2
+text = "SISTEMA LISTO. ESPERANDO ENLACES."
+horizontal_alignment = 2
+
+[node name="LeftPanel" type="PanelContainer" parent="HUD" unique_id=1703809632]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_right = 250.0
+offset_bottom = -220.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Scroll" type="ScrollContainer" parent="HUD/LeftPanel" unique_id=1244527620]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/LeftPanel/Scroll" unique_id=986592926]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblTitle" type="Label" parent="HUD/LeftPanel/Scroll/VBox" unique_id=84149076]
+layout_mode = 2
+text = "EVIDENCIAS
+(Haz clic para analizar)"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HUD/LeftPanel/Scroll/VBox" unique_id=399975666]
+layout_mode = 2
+
+[node name="EvidenceList" type="VBoxContainer" parent="HUD/LeftPanel/Scroll/VBox" unique_id=1685956412]
+layout_mode = 2
+
+[node name="BottomPanel" type="PanelContainer" parent="HUD" unique_id=1901674155]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="HBox" type="HBoxContainer" parent="HUD/BottomPanel" unique_id=311765558]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Col1" type="VBoxContainer" parent="HUD/BottomPanel/HBox" unique_id=995254585]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Lbl1" type="Label" parent="HUD/BottomPanel/HBox/Col1" unique_id=1243957481]
+layout_mode = 2
+text = "EVIDENCIA ACTIVA"
+horizontal_alignment = 1
+
+[node name="LblSelected" type="Label" parent="HUD/BottomPanel/HBox/Col1" unique_id=1139542094]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+text = "Ninguna"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Col2" type="VBoxContainer" parent="HUD/BottomPanel/HBox" unique_id=190633723]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Lbl2" type="Label" parent="HUD/BottomPanel/HBox/Col2" unique_id=825360434]
+layout_mode = 2
+text = "TIPOLOGÍA (Elige 1)"
+horizontal_alignment = 1
+
+[node name="GridCrime" type="GridContainer" parent="HUD/BottomPanel/HBox/Col2" unique_id=1617520689]
+layout_mode = 2
+columns = 2
+
+[node name="Col3" type="VBoxContainer" parent="HUD/BottomPanel/HBox" unique_id=806099889]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Lbl3" type="Label" parent="HUD/BottomPanel/HBox/Col3" unique_id=1252136245]
+layout_mode = 2
+text = "MARCO LEGAL (Elige 1)"
+horizontal_alignment = 1
+
+[node name="GridLaw" type="GridContainer" parent="HUD/BottomPanel/HBox/Col3" unique_id=1577802239]
+layout_mode = 2
+
+[node name="Col4" type="VBoxContainer" parent="HUD/BottomPanel/HBox" unique_id=1835208141]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Lbl4" type="Label" parent="HUD/BottomPanel/HBox/Col4" unique_id=1366586240]
+layout_mode = 2
+text = "GRAVEDAD"
+horizontal_alignment = 1
+
+[node name="SliderSev" type="HSlider" parent="HUD/BottomPanel/HBox/Col4" unique_id=1558561807]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="LblSevVal" type="Label" parent="HUD/BottomPanel/HBox/Col4" unique_id=880187489]
+layout_mode = 2
+text = "Nivel: 1"
+horizontal_alignment = 1
+
+[node name="Col5" type="VBoxContainer" parent="HUD/BottomPanel/HBox" unique_id=607559784]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="BtnLink" type="Button" parent="HUD/BottomPanel/HBox/Col5" unique_id=293311434]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+text = "GENERAR NODO
+[ AVL ]"

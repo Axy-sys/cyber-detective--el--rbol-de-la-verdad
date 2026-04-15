@@ -1,0 +1,144 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3x1y2z3a4b5c"]
+
+[ext_resource type="Script" path="res://views/ChatView.gd" id="1_abc12"]
+
+[node name="ChatView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abc12")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.686, 0.741, 0.784, 1)
+
+[node name="HeaderBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+color = Color(0.314, 0.51, 0.651, 1)
+
+[node name="AvatarPlaceholder" type="ColorRect" parent="HeaderBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -20.0
+offset_right = 55.0
+offset_bottom = 20.0
+grow_vertical = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ContactName" type="Label" parent="HeaderBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 5.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Valeria"
+vertical_alignment = 1
+
+[node name="ContactStatus" type="Label" parent="HeaderBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = 5.0
+offset_right = 300.0
+offset_bottom = 25.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.635, 0.812, 0.941, 1)
+text = "En línea"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BottomBar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 1)
+
+[node name="FakeInput" type="Label" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -20.0
+offset_right = 500.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "Escribe un mensaje..."
+vertical_alignment = 1
+
+[node name="BtnSiguiente" type="Button" parent="BottomBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = -20.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Enviar (Siguiente)"
+
+[node name="NotificationLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.18, 0.8, 0.44, 1)
+theme_override_font_sizes/font_size = 18
+text = "¡NUEVA PISTA!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,347 @@
+[gd_scene load_steps=12 format=3 uid="uid://df7h2s1qw3x4m"]
+
+[ext_resource type="Script" path="res://views/PrologueView.gd" id="1_js5s1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.956, 0.965, 0.965, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 1
+border_color = Color(0.85, 0.85, 0.85, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_search"]
+bg_color = Color(0.9, 0.92, 0.94, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_compose"]
+bg_color = Color(0.76, 0.88, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_folder_active"]
+bg_color = Color(0.83, 0.9, 0.98, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_email_card"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.05)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar"]
+bg_color = Color(0.2, 0.4, 0.8, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_next"]
+bg_color = Color(0.1, 0.36, 0.9, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_next_hover"]
+bg_color = Color(0.08, 0.3, 0.8, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="PrologueScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_js5s1")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="VBoxMain" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="PanelContainer" parent="VBoxMain"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_topbar")
+
+[node name="HBox" type="HBoxContainer" parent="VBoxMain/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Margin1" type="Control" parent="VBoxMain/TopBar/HBox"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="MenuIcon" type="Label" parent="VBoxMain/TopBar/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 24
+text = "☰"
+vertical_alignment = 1
+
+[node name="Logo" type="Label" parent="VBoxMain/TopBar/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "  CyberMail"
+vertical_alignment = 1
+
+[node name="SearchPanel" type="PanelContainer" parent="VBoxMain/TopBar/HBox"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_search")
+
+[node name="SearchLabel" type="Label" parent="VBoxMain/TopBar/HBox/SearchPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+text = "   Buscar en el correo"
+vertical_alignment = 1
+
+[node name="UserAvatar" type="Panel" parent="VBoxMain/TopBar/HBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar")
+
+[node name="Initials" type="Label" parent="VBoxMain/TopBar/HBox/UserAvatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Margin2" type="Control" parent="VBoxMain/TopBar/HBox"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Workspace" type="HBoxContainer" parent="VBoxMain"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Sidebar" type="VBoxContainer" parent="VBoxMain/Workspace"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MarginTop" type="Control" parent="VBoxMain/Workspace/Sidebar"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ComposeContainer" type="MarginContainer" parent="VBoxMain/Workspace/Sidebar"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 60
+
+[node name="BtnCompose" type="Button" parent="VBoxMain/Workspace/Sidebar/ComposeContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.2, 0.3, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_compose")
+theme_override_styles/hover = SubResource("StyleBoxFlat_compose")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_compose")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "✏️ Redactar"
+
+[node name="Folders" type="VBoxContainer" parent="VBoxMain/Workspace/Sidebar"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="BtnInbox" type="Button" parent="VBoxMain/Workspace/Sidebar/Folders"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.36, 0.9, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_folder_active")
+theme_override_styles/hover = SubResource("StyleBoxFlat_folder_active")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_folder_active")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "    📥 Recibidos"
+alignment = 0
+
+[node name="LabelStarred" type="Label" parent="VBoxMain/Workspace/Sidebar/Folders"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "    ⭐ Destacados"
+vertical_alignment = 1
+
+[node name="LabelSent" type="Label" parent="VBoxMain/Workspace/Sidebar/Folders"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "    🚀 Enviados"
+vertical_alignment = 1
+
+[node name="LabelDrafts" type="Label" parent="VBoxMain/Workspace/Sidebar/Folders"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "    📄 Borradores"
+vertical_alignment = 1
+
+[node name="EmailContainer" type="MarginContainer" parent="VBoxMain/Workspace"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="EmailCard" type="PanelContainer" parent="VBoxMain/Workspace/EmailContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_email_card")
+
+[node name="Margin" type="MarginContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxTools" type="HBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BtnBack" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/HBoxTools"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+text = "←"
+
+[node name="BtnArchive" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/HBoxTools"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+text = "📥"
+
+[node name="BtnDelete" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/HBoxTools"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+text = "🗑️"
+
+[node name="SubjectLabel" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 24
+text = "ASIGNACIÓN URGENTE: Caso de Ciberacoso - Valeria"
+
+[node name="SenderBox" type="HBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Avatar" type="Panel" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar")
+
+[node name="Label" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox/Avatar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SenderDetails" type="VBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameHBox" type="HBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox/SenderDetails"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox/SenderDetails/NameHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+text = "Director de Operaciones"
+
+[node name="EmailLabel" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox/SenderDetails/NameHBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+text = "<director.operaciones@netcity.gov>"
+
+[node name="ToLabel" type="Label" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/SenderBox/SenderDetails"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "para mí"
+
+[node name="Divider" type="ColorRect" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="BodyText" type="RichTextLabel" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "Alex,
+
+Te asigno un caso crítico..."
+fit_content = true
+
+[node name="ActionBox" type="HBoxContainer" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BtnReply" type="Button" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/ActionBox"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "↩ Responder"
+
+[node name="BtnSiguiente" type="Button" parent="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/ActionBox"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_next")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_next_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_next")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "Leer Siguiente →"
+
+[connection signal="pressed" from="VBoxMain/Workspace/EmailContainer/EmailCard/Margin/VBox/ActionBox/BtnSiguiente" to="." method="_on_btn_siguiente_pressed"]

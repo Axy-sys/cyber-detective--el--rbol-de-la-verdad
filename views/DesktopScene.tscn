@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://pota6yf58lms"]
+
+[ext_resource type="Script" path="res://views/DesktopView.gd" id="1_dsk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.03, 0.08, 0.12, 1)
+
+[node name="DesktopScene" type="Control" unique_id=970160724]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dsk")
+
+[node name="Background" type="Panel" parent="." unique_id=554485930]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="Taskbar" type="ColorRect" parent="." unique_id=1844278120]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.01, 0.02, 0.04, 0.9)
+
+[node name="LblStart" type="Label" parent="Taskbar" unique_id=1161575559]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 111.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "OS_DETECTIVE"
+
+[node name="IconsArea" type="VBoxContainer" parent="." unique_id=1915526122]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 440.0
+theme_override_constants/separation = 20
+
+[node name="BtnChat" type="Button" parent="IconsArea" unique_id=1587360579]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+text = "💬
+FakeGram"
+
+[node name="BtnDashboard" type="Button" parent="IconsArea" unique_id=1539355476]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+text = "🌳
+Cyber-Tree"
+
+[node name="BtnMail" type="Button" parent="IconsArea" unique_id=1628937195]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+text = "📧
+ProtonMail"
+
+[node name="BtnProgress" type="Button" parent="IconsArea" unique_id=1506211967]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 2
+text = "📋
+Expediente"
